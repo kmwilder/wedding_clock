@@ -95,7 +95,7 @@ void quietServo(int pos) {
   myServo1.write(pos);
 
   myServo2.attach(servoPin2);
-  myServo2.write(pos);
+  myServo2.write(pos == 0 ? 90 : 0); // want this one to move the other direction
 
   delay(500);
 
