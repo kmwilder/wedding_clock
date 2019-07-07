@@ -41,6 +41,7 @@ void setup() {
 }
 
 bool triggered = true;
+int triggerCount = 0;
 
 /*
 int pos = 0;
@@ -69,13 +70,20 @@ void loop() {
   int resetState = digitalRead(resetPin); // pushbutton, normally open
 
   if(!triggered && triggerState == LOW) {
-    triggered = true;
-    digitalWrite(relayPin, HIGH);
-    quietServo(0);
-    playSong();
-    delay(1000);
-    
+    if(triggerCount >= 10) {
+      triggered = true;
+      digitalWrite(relayPin, HIGH);
+      quietServo(0);
+      playSong();
+      delay(1000);
+    } else {
+      triggerCount++;
+      delay(1);
+    }
+  } else if(!triggered && triggerState == HIGH) {
+    triggerCount = 0;
   } else if(triggered && resetState == LOW) {
+    triggerCount = 0;
     triggered = false;
     digitalWrite(relayPin, LOW);
     quietServo(90);
