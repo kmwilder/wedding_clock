@@ -19,6 +19,9 @@ const int soundPin  = 11;
 //==================================
 // Song Definition
 //==================================
+
+/*
+// Shave and a haircut
 int numNotes = 8;
 
 int melody[] = {
@@ -29,7 +32,28 @@ int melody[] = {
 int noteDurations[] = {
   4, 8, 8, 4, 4, 4, 4, 4
 };
+*/
 
+// Da da da DA
+int numNotes = 5;
+int melody[] = {
+  // NOTE_G3, 0, NOTE_G3, NOTE_G3, NOTE_D4
+  NOTE_AS4, 0, NOTE_AS4, NOTE_AS4, NOTE_F5
+};
+int noteDurations[] = {
+  8, 8, 8, 8, 2
+};
+
+/*
+// ta DA
+int numNotes = 2;
+int melody[] = {
+   NOTE_CS4, NOTE_CS4
+};
+int noteDurations[] = {
+   8, 1  
+};
+*/
 
 //==================================
 // Arduino core functions
@@ -42,27 +66,6 @@ void setup() {
 
 bool triggered = true;
 int triggerCount = 0;
-
-/*
-int pos = 0;
-void loop() {
-  
-  myServo.write(0);
-  delay(1000);
-  myServo.write(90);
-  delay(1000);
-
-  while(pos < 180) {
-    myServo.write(pos);
-    pos+=10;
-    delay(100);
-  }
-  pos = 0;
-  myServo.write(pos);
-  
-}
-
-*/
 
 void loop() {
   
